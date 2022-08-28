@@ -1,8 +1,8 @@
 package domain;
 
 public class Radio {
-    public int currentRadioStationNumber;
-    public int soundVolume;
+    private int currentRadioStationNumber;
+    private int soundVolume;
 
     public int getCurrentRadioStationNumber() {
         return currentRadioStationNumber;
