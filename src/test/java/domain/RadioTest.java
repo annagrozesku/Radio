@@ -7,7 +7,7 @@ public class RadioTest {
 
     @Test
     public void shouldNotSetRadioStationNumberLessZero() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentRadioStationNumber(-1);
 
@@ -19,7 +19,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetRadioStationNumberZero() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentRadioStationNumber(0);
 
@@ -31,7 +31,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetRadioStationNumberOne() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentRadioStationNumber(1);
 
@@ -43,7 +43,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetRadioStationNumberEight() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentRadioStationNumber(8);
 
@@ -55,7 +55,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetRadioStationNumberNine() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentRadioStationNumber(9);
 
@@ -67,7 +67,7 @@ public class RadioTest {
 
     @Test
     public void shouldNotSetRadioStationNumberMoreNine() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
 
         radio.setCurrentRadioStationNumber(10);
 
@@ -79,7 +79,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetNextRadioStationNumberNine() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentRadioStationNumber(8);
 
         radio.setNextRadioStationNumber();
@@ -92,7 +92,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetNextRadioStationNumberZero() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentRadioStationNumber(9);
 
         radio.setNextRadioStationNumber();
@@ -105,7 +105,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetPrevRadioStationNumberZero() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentRadioStationNumber(1);
 
         radio.setPrevRadioStationNumber();
@@ -118,7 +118,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetPrevRadioStationNumberNine() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setCurrentRadioStationNumber(0);
 
         radio.setPrevRadioStationNumber();
@@ -133,7 +133,7 @@ public class RadioTest {
     public void shouldNotSetSoundVolumeMoreTen() {
         Radio volume = new Radio();
 
-        volume.setCurrentSoundVolume(11);
+        volume.setCurrentSoundVolume(101);
 
         int expected = 0;
         int actual = volume.getSoundVolume();
@@ -146,9 +146,9 @@ public class RadioTest {
     public void shouldSetSoundVolumeTen() {
         Radio volume = new Radio();
 
-        volume.setCurrentSoundVolume(10);
+        volume.setCurrentSoundVolume(100);
 
-        int expected = 10;
+        int expected = 100;
         int actual = volume.getSoundVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -158,9 +158,9 @@ public class RadioTest {
     public void shouldSetSoundVolumeNine() {
         Radio volume = new Radio();
 
-        volume.setCurrentSoundVolume(9);
+        volume.setCurrentSoundVolume(99);
 
-        int expected = 9;
+        int expected = 99;
         int actual = volume.getSoundVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -205,11 +205,11 @@ public class RadioTest {
     @Test
     public void shouldSetIncreaseSoundVolumeFromNineToTen() {
         Radio volume = new Radio();
-        volume.setCurrentSoundVolume(9);
+        volume.setCurrentSoundVolume(99);
 
         volume.setIncreaseSoundVolume();
 
-        int expected = 10;
+        int expected = 100;
         int actual = volume.getSoundVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -218,11 +218,11 @@ public class RadioTest {
     @Test
     public void shouldSetIncreaseSoundVolumeToTen() {
         Radio volume = new Radio();
-        volume.setCurrentSoundVolume(10);
+        volume.setCurrentSoundVolume(100);
 
         volume.setIncreaseSoundVolume();
 
-        int expected = 10;
+        int expected = 100;
         int actual = volume.getSoundVolume();
 
         Assertions.assertEquals(expected, actual);

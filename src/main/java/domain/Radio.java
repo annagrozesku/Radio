@@ -3,6 +3,18 @@ package domain;
 public class Radio {
     private int currentRadioStationNumber;
     private int soundVolume;
+    private int maxRadioStationNumber;
+
+    private int maxSoundVolume;
+
+    public Radio() {
+        this.maxRadioStationNumber = 9;
+        this.maxSoundVolume = 100;
+    }
+
+    public Radio(int numberOfRadioStation) {
+        this.maxRadioStationNumber = numberOfRadioStation - 1;
+    }
 
     public int getCurrentRadioStationNumber() {
         return currentRadioStationNumber;
@@ -12,14 +24,14 @@ public class Radio {
         if (newCurrentRadioStationNumber < 0) {
             return;
         }
-        if (newCurrentRadioStationNumber > 9) {
+        if (newCurrentRadioStationNumber > maxRadioStationNumber) {
             return;
         }
         currentRadioStationNumber = newCurrentRadioStationNumber;
     }
 
     public void setNextRadioStationNumber() {
-        if (currentRadioStationNumber == 9) {
+        if (currentRadioStationNumber == maxRadioStationNumber) {
             currentRadioStationNumber = 0;
         } else {
             currentRadioStationNumber = currentRadioStationNumber + 1;
@@ -28,7 +40,7 @@ public class Radio {
 
     public void setPrevRadioStationNumber() {
         if (currentRadioStationNumber == 0) {
-            currentRadioStationNumber = 9;
+            currentRadioStationNumber = maxRadioStationNumber;
         } else {
             currentRadioStationNumber = currentRadioStationNumber - 1;
         }
@@ -39,7 +51,7 @@ public class Radio {
     }
 
     public void setCurrentSoundVolume(int newSoundVolume) {
-        if (newSoundVolume > 10) {
+        if (newSoundVolume > maxSoundVolume) {
             return;
         }
         if (newSoundVolume < 0) {
@@ -49,7 +61,7 @@ public class Radio {
     }
 
     public void setIncreaseSoundVolume() {
-        if (soundVolume < 10) {
+        if (soundVolume < maxSoundVolume) {
             soundVolume = soundVolume + 1;
         }
     }
